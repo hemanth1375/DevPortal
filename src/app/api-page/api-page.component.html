@@ -1,0 +1,40 @@
+@if(showParent){
+<div class="container">
+    <div class="row mt-3">
+        <h3>APIs</h3>
+    </div>
+    <div class="row d-flex justify-content-center">
+        @for(item of apiList;track item){
+        <div class="col-sm-10">
+            
+                <div class="api-card d-flex mb-3" (click)="goToViewPage()">
+                    <div class="col-sm-4 d-flex flex-column align-items-start justify-content-end p-2">
+                        <h2>{{item.name}}</h2>
+                        <p>Version</p>
+                        <p>{{item.version}}</p>
+                    </div>
+                    <div class="col-sm-4 d-flex flex-column align-items-center justify-content-end">
+                        <p>Context</p>
+                        <p>{{item.context}}</p>
+                    </div>
+                    <div class="col-sm-4 d-flex flex-column align-items-end justify-content-end p-2">
+                        <p class="api-card-by">by {{item.provider}}</p>
+                        <p>0.0/5.0(users)</p>
+                        <p>
+                            <mat-icon aria-hidden="false" aria-label="Example home icon" class="material-symbols-outlined" fontIcon="star"></mat-icon>
+                            <mat-icon aria-hidden="false" aria-label="Example home icon"class="material-symbols-outlined" fontIcon="star"></mat-icon>
+                            <mat-icon aria-hidden="false" aria-label="Example home icon" class="material-symbols-outlined" fontIcon="star"></mat-icon>
+                        </p>
+                    </div>
+                </div>
+           
+            
+        </div>
+    }
+    </div>
+
+</div>
+}
+@else{
+    <router-outlet></router-outlet>
+}

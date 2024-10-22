@@ -15,7 +15,8 @@ export class LoginComponent {
 
 login() {
   this.isloading=true;
-  //this.router.navigate(['viewVehicle'], { state: { id: apprCard.id, vin: apprCard.vinNumber, comp: 'inventory' }, relativeTo: this.route });
+this.router.navigate(['apis'])
+  // this.router.navigate(['viewVehicle'], { state: { id: apprCard.id, vin: apprCard.vinNumber, comp: 'inventory' }, relativeTo: this.route });
 this.authService.getLogin(this.loginDetails.get('username')?.value,this.loginDetails.get('password')?.value).subscribe({
   next:(response:any)=>{
     if(response){

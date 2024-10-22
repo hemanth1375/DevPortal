@@ -1,0 +1,8 @@
+.api-card{
+    border:1px solid rgba(166, 149, 149, 0.38);
+    border-radius:15px;
+    cursor: pointer;
+}
+.api-card-by{
+    color:rgba(75, 130, 204, 1);
+}

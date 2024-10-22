@@ -1,1 +1,24 @@
-<p>navbar works!</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light nav-bg">
+    <div class="container-fluid">
+        <img class="img-krakend" src="./../../assets/images/krakend2.png" alt="Krakend">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="apis" routerLinkActive="active" class="nav-link-inserted">APIs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="applications" routerLinkActive="active" class="nav-link-inserted">Applications</a>
+          </li>
+          
+        </ul>
+        <div class="navbar-text d-flex align-items-center">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <!-- <span>Admin</span> -->
+            <!-- <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="account_circle"></mat-icon> -->
+        </div>
+      </div>
+    </div>
+  </nav>
