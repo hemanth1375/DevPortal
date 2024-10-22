@@ -26,6 +26,8 @@ import { LoginComponent } from './login/login.component';
 import { MaterailModule } from './material/material.module';
 import { ProgressLoaderComponent } from './progress-loader/progress-loader.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { TryItOutComponent } from './try-it-out/try-it-out.component';
+import { SwaggerComponent } from './swagger/swagger.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     OverviewComponent,
     SubscriptionComponent,
     LoginComponent,
-    ProgressLoaderComponent
+    ProgressLoaderComponent,
+    TryItOutComponent,
+    SwaggerComponent
   ],
   imports: [
     BrowserModule,

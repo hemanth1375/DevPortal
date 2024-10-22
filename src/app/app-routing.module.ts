@@ -6,6 +6,7 @@ import { ApplicationPageComponent } from './application-page/application-page.co
 import { ViewApiPageComponent } from './view-api-page/view-api-page.component';
 import { OverviewComponent } from './overview/overview.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
+import { SwaggerComponent } from './swagger/swagger.component';
 
 const routes: Routes = [
   {path:"apis",component:ApiPageComponent,children:[
@@ -15,6 +16,7 @@ const routes: Routes = [
     ]}
   ]},
   {path:"applications",component:ApplicationPageComponent},
+  {path:'api-docs', component:SwaggerComponent}
 ];
 
 @NgModule({
