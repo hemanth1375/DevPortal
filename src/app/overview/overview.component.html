@@ -2,9 +2,40 @@
     <div class="row">
         <div class="col-sm-12 d-flex overview-card">
             <div class="col-sm-3 first-col">
-                <p>Rate This</p>
+                <p class="d-flex align-items-center"><mat-icon aria-hidden="false" aria-label="Example home icon" class="material-symbols-outlined icon-size" fontIcon="star"></mat-icon>Rate This</p>
+                <span class="d-flex align-items-center"><mat-icon aria-hidden="false" class="icon-size" aria-label="Example home icon" fontIcon="star"></mat-icon>Not Rated</span>
             </div>
             <!-- <hr> -->
+             <div class="col-sm-6 second-col">
+                <h2>{{apiData.name}}</h2>
+                <p>Version {{apiData.version}}</p>
+                <p>by {{apiData.provider}}</p>
+                <div class="d-flex align-items-center">
+                    <p class="col-sm-3 mb-0">URL</p>
+                    <input class="col-sm-9 url-input" type="text" value="{{apiData.endpointURLs[0].URLs.https}}"/>
+                    <!-- <mat-form-field class="example-full-width col-sm-9"appearance="outline">
+                        <input matInput placeholder="Ex. Pizza" value="{{apiData.name}}">
+                      </mat-form-field> -->
+                </div>
+                <div class="mt-3">
+                    <h3>Business Plans</h3>
+                    <div class="businessplan-card">
+                        @for(tier of apiData.tiers;track tier){
+                            <p>{{tier.tierName}}</p>
+                        }
+                    </div>
+                </div>
+             </div>
+             <div class="col-sm-3 third-col">
+                <div>
+                <h2>Tags</h2>
+                <p>Not Tagged</p>
+            </div>
+                <div>
+                <h2>Source</h2>
+                <p>Download async API specification</p>
+            </div>
+             </div>
         </div>
     </div>
 </div>

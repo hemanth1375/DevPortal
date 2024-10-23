@@ -13,13 +13,13 @@ export class AuthService {
 
     const headers  = new HttpHeaders({
       accept:"application/json",
-      Authorization: "Bearer 462827c7-9790-3589-9633-64d1602bc5b2" 
+      Authorization: "Bearer 564b2fef-8a55-35e8-887a-28bfa927e963" 
     })
     return this.http.get(url, {headers})
   }
 
   public getAccesstoken(consumerSecret:any){
-    const url = "https://localhost:9443/api/am/devportal/v3/applications/b719cc6e-0fe9-4fc0-b89e-e455109c0623/oauth-keys/b5caa0fb-16f1-46b3-a47d-e5e06f6eafeb/generate-token";
+    const url = "https://localhost:9443/api/am/devportal/v3/applications/b719cc6e-0fe9-4fc0-b89e-e455109c0623/oauth-keys/89d163ad-12d8-48e1-acd6-7c9c6e3e09b8/generate-token";
 
         const body = {
           "consumerSecret":consumerSecret ,
@@ -39,7 +39,7 @@ export class AuthService {
 
       const headers  = new HttpHeaders({
         accept:"application/json",
-        Authorization: "Bearer 462827c7-9790-3589-9633-64d1602bc5b2" 
+        Authorization: "Bearer 564b2fef-8a55-35e8-887a-28bfa927e963" 
       })
 
       return this.http.post(url, body, {headers})

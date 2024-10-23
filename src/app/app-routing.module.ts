@@ -10,13 +10,14 @@ import { SwaggerComponent } from './swagger/swagger.component';
 
 const routes: Routes = [
   {path:"apis",component:ApiPageComponent,children:[
-    {path:"viewapi",component:ViewApiPageComponent,children:[
+    {path:"viewapi/:id",component:ViewApiPageComponent,children:[
       {path:"overview",component:OverviewComponent},
-      {path:"subscriptions",component:SubscriptionComponent}
+      {path:"subscriptions",component:SubscriptionComponent},
+      {path:'tryit', component:SwaggerComponent}
     ]}
   ]},
   {path:"applications",component:ApplicationPageComponent},
-  {path:'api-docs', component:SwaggerComponent}
+  
 ];
 
 @NgModule({

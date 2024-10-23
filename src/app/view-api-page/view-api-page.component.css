@@ -25,3 +25,6 @@
     color:rgba(110, 103, 173, 1) !important;
     transition: border-bottom 0.3s ease-in-out;
   }
+  .icon-size{
+    font-size: 20px;
+  }

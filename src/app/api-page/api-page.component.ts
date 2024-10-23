@@ -1,6 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { ApiPageService } from '../services/api-page.service';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, ActivatedRouteSnapshot, NavigationEnd, Router, RouterState, RouterStateSnapshot } from '@angular/router';
 
 @Component({
   selector: 'app-api-page',
@@ -9,14 +9,49 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 })
 export class ApiPageComponent {
 
-  constructor(private apiPageService:ApiPageService, private router:Router,private route:ActivatedRoute){}
+  constructor(private apiPageService:ApiPageService, private router:Router,private route:ActivatedRoute){
+       
+    const state: RouterState = router.routerState;
+    console.log(state);
+   
+    const snapshot: RouterStateSnapshot = state.snapshot;
+    console.log(snapshot)
+    const root: ActivatedRouteSnapshot = snapshot.root;
+    console.log(root);
+ 
+    const child = root.firstChild;
+   
+    console.log(root.children.slice()[0].children.slice()[0]?.paramMap?.get('id'));
+ 
+ 
+   const id1=root.children.slice()[0].children.slice()[0]?.paramMap.get('id');
+   //refresh related page loading or routing should be handle in constructor
+   this.router.events.subscribe((event) => {
+     
+    if (event instanceof NavigationEnd) {
+      console.log(this.router.url );
+     
+       // Check if the current route is 'recipe'
+      if (this.router.url === '/apis') {
+        this.showParent=true;
+       
+       
+    }else if(this.router.url === `/apis/viewapi/${id1}/overview`){
+ 
+    this.showParent=false;
+    }
+  }});
+ 
+  }
 apiList:any=[];
 showParent:any=true;
+apiResponseData:any;
   ngOnInit(){
     this.apiPageService.getApis().subscribe({
       next:(res:any)=>{
         console.log(res);
         this.apiList=res.list;
+        this.apiResponseData=res;
         
       },
       error:(err)=>{
@@ -25,9 +60,9 @@ showParent:any=true;
     })
 
   }
-  goToViewPage(){
+  goToViewPage(id:any){
     this.showParent=false;
-    this.router.navigate(['viewapi/overview'],{relativeTo:this.route})
+    this.router.navigate([`viewapi/${id}/overview`],{state:{data:this.apiResponseData,id:id},relativeTo:this.route})
   }
   @HostListener('window:popstate', ['$event']) toggelOpen( event:Event){
     
