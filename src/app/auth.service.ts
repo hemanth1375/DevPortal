@@ -18,8 +18,8 @@ export class AuthService {
     return this.http.get(url, {headers})
   }
 
-  public getAccesstoken(consumerSecret:any){
-    const url = "https://localhost:9443/api/am/devportal/v3/applications/b719cc6e-0fe9-4fc0-b89e-e455109c0623/oauth-keys/89d163ad-12d8-48e1-acd6-7c9c6e3e09b8/generate-token";
+  public getAccesstoken(consumerSecret:any,keyMapId:any){
+    const url = `https://localhost:9443/api/am/devportal/v3/applications/b719cc6e-0fe9-4fc0-b89e-e455109c0623/oauth-keys/${keyMapId}/generate-token`;
 
         const body = {
           "consumerSecret":consumerSecret ,

@@ -22,10 +22,13 @@ export class SwaggerComponent implements OnInit{
       switchMap((res:any)=>{
         if(res?.list && Array.isArray(res.list)){
           const productionKey = res.list.find((item:any)=> item.keyType ==="SANDBOX")
+          console.log(productionKey);
+          
           if(productionKey){
+            const keyMapId=productionKey.keyMappingId;
             const consumerSecret = productionKey.consumerSecret;
             console.log('consumer Secret for Production:', consumerSecret);
-            return this.authService.getAccesstoken(consumerSecret);
+            return this.authService.getAccesstoken(consumerSecret,keyMapId);
           }else{
             throw new Error('No PRODUCTION keyType found in the response');
           }
